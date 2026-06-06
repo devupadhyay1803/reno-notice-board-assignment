@@ -68,4 +68,4 @@ I would add image uploads for notices using cloud storage and implement paginati
 
 ## AI Usage
 
-AI tools were used for debugging, troubleshooting deployment issues, understanding Prisma and TiDB configuration, and improving the user interface. All code was reviewed, tested, and integrated manually.
+AI tools were used for troubleshooting Prisma, TiDB, GitHub, and Vercel deployment issues, as well as for development guidance. All code was reviewed, tested, and integrated manually.
