@@ -1,0 +1,159 @@
+/* NoticeCard.module.css – Amity Blue */
+
+.card {
+  position: relative;
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 1.4rem;
+  box-shadow: 0 1px 4px rgba(30,77,140,0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  cursor: pointer;
+}
+.card:hover {
+  box-shadow: 0 6px 24px rgba(30,77,140,0.14);
+  transform: translateY(-3px);
+  border-color: var(--blue-300);
+}
+.card.urgent {
+  border-left: 4px solid var(--red);
+  background: linear-gradient(to right, #fff5f5, var(--surface));
+}
+[data-theme="dark"] .card.urgent {
+  background: linear-gradient(to right, #1a0a0a, var(--surface));
+}
+
+.urgentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.imageWrapper { width:100%; border-radius:8px; overflow:hidden; max-height:180px; }
+.image { width:100%; height:180px; object-fit:cover; display:block; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.categoryBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.date { font-size: 0.78rem; color: var(--subtle); }
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.4;
+}
+.body {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.readMore {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue-500);
+  align-self: flex-start;
+  margin-top: -0.25rem;
+}
+.readMore:hover { text-decoration: underline; }
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+.editBtn, .deleteBtn {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.editBtn {
+  background: var(--blue-50);
+  color: var(--blue-600);
+  border: 1px solid var(--blue-100);
+}
+.editBtn:hover { background: var(--blue-100); }
+.deleteBtn {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+.deleteBtn:hover { background: #fee2e2; }
+[data-theme="dark"] .deleteBtn { background: #1a0808; border-color: #7f1d1d; color: #f87171; }
+[data-theme="dark"] .deleteBtn:hover { background: #2a0f0f; }
+
+/* Confirm overlay */
+.confirmOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+.confirmBox {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+}
+.confirmTitle { font-size: 1.1rem; font-weight: 800; color: var(--text); margin: 0 0 0.5rem; }
+.confirmText { font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin: 0 0 1.5rem; }
+.confirmActions { display: flex; gap: 0.75rem; justify-content: flex-end; }
+.cancelBtn {
+  padding: 0.5rem 1.2rem; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg); color: var(--text);
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+}
+.cancelBtn:hover { background: var(--border); }
+.confirmDeleteBtn {
+  padding: 0.5rem 1.2rem; border-radius: 8px; border: none;
+  background: var(--red); color: #fff;
+  font-size: 0.9rem; font-weight: 700; cursor: pointer;
+}
+.confirmDeleteBtn:hover { background: #b91c1c; }
+.confirmDeleteBtn:disabled, .cancelBtn:disabled { opacity: 0.6; cursor: not-allowed; }

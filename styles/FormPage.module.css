@@ -1,0 +1,17 @@
+/* FormPage.module.css */
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 1.5rem 1rem 3rem;
+}
+.nav { max-width: 720px; margin: 0 auto 1.5rem; }
+.back {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--blue-500);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s;
+}
+.back:hover { color: var(--blue-700); }
